@@ -55,10 +55,12 @@ class I18nManager {
           module = await import("../locales/zh-TW.ts");
         } else if (locale === "pt-BR") {
           module = await import("../locales/pt-BR.ts");
+        } else if (locale === "th") {
+          module = await import("../locales/th.ts");
         } else {
           return;
         }
-        this.translations[locale] = module[locale.replace("-", "_")];
+        this.translations[locale] = module[locale];
       } catch (e) {
         console.error(`Failed to load locale: ${locale}`, e);
         return;
